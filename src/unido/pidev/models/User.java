@@ -12,7 +12,7 @@ import java.util.Objects;
  * @author Mariem
  */
 public class User {
-    public int id ;
+    private int id ;
     private String nom ;
     private String prenom ;
     private long CIN ; 
@@ -73,6 +73,14 @@ public class User {
         this.login = login;
         this.mdp = mdp;
         this.role = role;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
      
 

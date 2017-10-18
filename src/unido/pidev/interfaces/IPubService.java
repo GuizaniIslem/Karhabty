@@ -5,18 +5,15 @@
  */
 package unido.pidev.interfaces;
 
-import java.util.List;
-import unido.pidev.models.User;
-import unido.pidev.models.Voiture;
+import unido.pidev.models.Pub;
+
 
 
 /**
  *
  * @author Nourelhouda
  */
-public interface IVoitureService extends Iservice <Voiture, Integer> {
+public interface IPubService extends Iservice <Pub,Integer> { 
     
-    List<Voiture> getByUser(User user );
-     void removeAll(); 
-    
+    void removeAll() ;
 }

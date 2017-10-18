@@ -30,7 +30,7 @@ public class UserService implements IuserService {
     public void add(User u) {
         try {
               System.out.println(u.toString());
-              String requete ="INSERT INTO users (nom,prenom,CIN,email,telephone,adresse,login,MDP,pièce_permission,role) VALUES (?,?,?,?,?,?,?,?,?,?)";
+              String requete ="INSERT INTO users (nom,prenom,CIN,mail,telephone,adresse,login,MDP,pièce_permission,role) VALUES (?,?,?,?,?,?,?,?,?,?)";
               PreparedStatement pst = connection.prepareStatement(requete);
               pst.setString(1, u.getNom());
               pst.setString(2, u.getPrenom());
@@ -54,7 +54,7 @@ public class UserService implements IuserService {
     public void update(User u) {
         try {
               System.out.println(u.toString());
-                    String requete ="update users set nom=?,prenom=?CIN=?email=?telephone=?adresse=?login=?MDP=?pièce_permission=?role=? VALUES (?,?,?,?,?,?,?,?,?,?)";
+                    String requete ="update users set nom=?,prenom=?CIN=?mail=?telephone=?adresse=?login=?MDP=?pièce_permission=?role=? VALUES (?,?,?,?,?,?,?,?,?,?)";
                     PreparedStatement pst = connection.prepareStatement(requete);
                     pst.setString(1, u.getNom());
                     pst.setString(2, u.getPrenom());
@@ -114,7 +114,7 @@ public class UserService implements IuserService {
             String requete="delete from users where id=?";
             PreparedStatement ps = connection.prepareStatement(requete);
             
-            ps.setInt(1, u.id);
+            ps.setInt(1, u.getId());
             
             ps.executeUpdate();
         } catch (SQLException ex) {
