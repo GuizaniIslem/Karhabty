@@ -7,16 +7,17 @@ package unido.pidev.interfaces;
 
 import java.util.List;
 import unido.pidev.models.User;
-import unido.pidev.models.Voiture;
+import unido.pidev.models.voiture;
+
 
 
 /**
  *
  * @author Nourelhouda
  */
-public interface IVoitureService extends Iservice <Voiture, Integer> {
+public interface IVoitureService extends Iservice <voiture, Integer> {
     
-    List<Voiture> getByUser(User user );
+    List<voiture> getByUser(User user );
      void removeAll(); 
     
 }

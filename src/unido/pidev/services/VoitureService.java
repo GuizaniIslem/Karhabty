@@ -17,7 +17,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import unido.pidev.interfaces.IVoitureService;
 import unido.pidev.models.User;
-import unido.pidev.models.Voiture;
+import unido.pidev.models.voiture;
+
 import unido.pidev.techniques.DataSource;
 
 
@@ -33,7 +34,7 @@ public class VoitureService implements IVoitureService{
     }
 
     @Override
-    public void add( Voiture t) {
+    public void add( voiture t) {
         String req = "insert into voitures ( id_user,marque, matricule, date_vignette,date_visite,date_assurance,date_vidange) values (?,?,?,?,?,?,?) " ;
         PreparedStatement preparedStatement;
         try {
@@ -58,7 +59,7 @@ public class VoitureService implements IVoitureService{
     }
 
     @Override
-    public void update(Voiture t) {
+    public void update(voiture t) {
        String req = "update voitures set marque=?, matricule=? , date_vignette=? ,date_visite=? ,date_assurance=? ,date_vidange=? where id_voiture = ?";
         PreparedStatement preparedStatement;
         try {
@@ -111,8 +112,8 @@ public class VoitureService implements IVoitureService{
     }
 
     @Override
-    public Voiture findById(Integer r) {
-      Voiture voiture = null;
+    public voiture findById(Integer r) {
+      voiture voiture = null;
         String req = "select * from voitures where id_voiture =?";
         PreparedStatement preparedStatement;
         try {
@@ -120,7 +121,7 @@ public class VoitureService implements IVoitureService{
             preparedStatement.setInt(1, r);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                voiture = new Voiture (resultSet.getInt("id_voiture"), new UserService().findById(resultSet.getInt(2)), resultSet.getString("marque"),resultSet.getString("matricule"));
+                voiture = new voiture (resultSet.getInt("id_voiture"), new UserService().findById(resultSet.getInt(2)), resultSet.getString("marque"),resultSet.getString("matricule"));
             }
         } catch (SQLException ex) {
         }
@@ -128,15 +129,15 @@ public class VoitureService implements IVoitureService{
     }
 
     @Override
-    public List<Voiture> getAll() {
-        List<Voiture> cars = new ArrayList<>();
+    public List<voiture> getAll() {
+        List<voiture> cars = new ArrayList<>();
         String req = "select * from voitures ";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-               Voiture car = new Voiture (resultSet.getInt("id_voiture"), new UserService().findById(resultSet.getInt(2)), resultSet.getString("marque"),resultSet.getString("matricule") );
+               voiture car = new voiture (resultSet.getInt("id_voiture"), new UserService().findById(resultSet.getInt(2)), resultSet.getString("marque"),resultSet.getString("matricule") );
                 cars.add(car); 
             }
         } catch (SQLException ex) {
@@ -145,8 +146,8 @@ public class VoitureService implements IVoitureService{
     }
 
     @Override
-    public List<Voiture> getByUser(User user) {
-           List<Voiture> cars = new ArrayList<>();
+    public List<voiture> getByUser(User user) {
+           List<voiture> cars = new ArrayList<>();
         String req = "select * from voitures where id_user=?";
         PreparedStatement preparedStatement;
         try {
@@ -154,7 +155,7 @@ public class VoitureService implements IVoitureService{
             preparedStatement.setInt(1, user.getId());              //à verifier
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Voiture car = new Voiture (resultSet.getInt("id_voiture"), new UserService().findById(resultSet.getInt(2)), resultSet.getString("marque"),resultSet.getString("matricule"));
+                voiture car = new voiture (resultSet.getInt("id_voiture"), new UserService().findById(resultSet.getInt(2)), resultSet.getString("marque"),resultSet.getString("matricule"));
                 cars.add(car);
             }
         } catch (SQLException ex) {

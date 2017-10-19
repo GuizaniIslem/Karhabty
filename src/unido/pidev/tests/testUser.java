@@ -4,7 +4,8 @@ import java.sql.SQLException;
 import unido.pidev.interfaces.IuserService;
 import unido.pidev.models.Pub;
 import unido.pidev.models.User;
-import unido.pidev.models.Voiture;
+import unido.pidev.models.voiture;
+
 import unido.pidev.services.PubService;
 import unido.pidev.services.UserService;
 import unido.pidev.services.VoitureService;
@@ -36,7 +37,7 @@ public class testUser {
    
    ///////////////TEST VOITURE \\\\\\\\\\\\\\\\\
    VoitureService vs = new VoitureService() ; 
-    Voiture v1= new Voiture (3,u,"peujeot","123Tun4430","2/12/2012","12/12/2012", "12/12/2012","12/12/2012") ;
+    voiture v1= new voiture (3,u,"peujeot","123Tun4430","2/12/2012","12/12/2012", "12/12/2012","12/12/2012") ;
     //vs.add(v1); 
     
     

@@ -46,7 +46,7 @@ public class PubService implements IPubService {
             preparedStatement.setDate(4, t.convert(t.getDate_pub()) );  
            
                 } catch (ParseException ex) {
-                    Logger.getLogger(VoitureService.class.getName()).log(Level.SEVERE, null, ex);
+                   Logger.getLogger(PubService.class.getName()).log(Level.SEVERE, null, ex);
                 }
             preparedStatement.setString(5, t.getPhoto());       
                        
@@ -67,12 +67,14 @@ public class PubService implements IPubService {
            
             preparedStatement.setString(1, t.getTitre());
             preparedStatement.setString(2, t.getDescription());
-           try {  
-               preparedStatement.setDate(3, t.convert(t.getDate_pub()) );
-          
+         
+            try { 
+                preparedStatement.setDate(3, t.convert(t.getDate_pub()) );
             } catch (ParseException ex) {
-               Logger.getLogger(VoitureService.class.getName()).log(Level.SEVERE, null, ex);
-           }
+                Logger.getLogger(PubService.class.getName()).log(Level.SEVERE, null, ex);
+            }
+          
+        
            preparedStatement.setString(4, t.getPhoto());
            preparedStatement.setInt(5, t.getId_pub());
 
