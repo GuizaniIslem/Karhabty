@@ -33,10 +33,7 @@ public class testUser {
     userService.add(u);
     userService.add(u2);
     userService.add(u3);
-     for (User u : u .getAll()) {
-            System.out.println(u);
-    }
-    
+     
 
    
    /* Message m = new Message(u, u2, "Salut !, Comment ça va ? je vous parle à propos de la fiat 500 , quel age a-elle ?");
