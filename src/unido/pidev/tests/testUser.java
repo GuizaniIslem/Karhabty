@@ -30,12 +30,16 @@ public class testUser {
     User u3 = new User ("Mimi","Hafnaoui",14253140,"mariem.hafnaoui@esprit.tn",92339150,"mimi","123456","admin");
 
     IuserService userService=new UserService();
-    /*userService.add(u);
+    userService.add(u);
     userService.add(u2);
     userService.add(u3);
+     for (User u : u .getAll()) {
+            System.out.println(u);
+    }
+    
 
    
-    Message m = new Message(u, u2, "Salut !, Comment ça va ? je vous parle à propos de la fiat 500 , quel age a-elle ?");
+   /* Message m = new Message(u, u2, "Salut !, Comment ça va ? je vous parle à propos de la fiat 500 , quel age a-elle ?");
     MessageService M = new MessageService();
     M.add(m);
     Message m1 = new Message(u2, u, "Bonjour ! oui parfait , elle a 3 ans");

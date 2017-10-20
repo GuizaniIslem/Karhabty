@@ -98,8 +98,10 @@ public class UserService implements IuserService {
                         resultSet.getLong("CIN"),
                         resultSet.getString("mail"),
                         resultSet.getLong("telephone"),
+                        resultSet.getString("adresse"),
                         resultSet.getString("Login"),
                         resultSet.getString("mdp"),
+                        resultSet.getString("piece_permission"),
                         resultSet.getString("role") );
             }
         } catch (SQLException ex) {
@@ -125,29 +127,31 @@ public class UserService implements IuserService {
 
     @Override
     public List<User> getAll() {
-        List<User> user =  new ArrayList<>();
+           List<User> user =  new ArrayList<>();
         String req = "select * from users";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(req);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                user = (List<User>) new User( 
-                        resultSet.getInt("id"),
+                User  u = new User( resultSet.getInt("id"),
                         resultSet.getString("nom"), 
                         resultSet.getString("prenom"),
                         resultSet.getLong("CIN"),
                         resultSet.getString("mail"),
                         resultSet.getLong("telephone"),
+                        resultSet.getString("adresse"),
                         resultSet.getString("Login"),
                         resultSet.getString("mdp"),
+                        resultSet.getString("piece_permission"),
                         resultSet.getString("role") );
-                user.add((User) user);
+                        user.add(u); 
+
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return user;    
+        return user;
     }
 
     @Override
