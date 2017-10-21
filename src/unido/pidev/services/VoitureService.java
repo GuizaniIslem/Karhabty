@@ -81,9 +81,10 @@ public class VoitureService implements IVoitureService{
 
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
-             ex.printStackTrace(); 
+             ex.printStackTrace()  ;  
         }
     }
+    
 
     @Override
     public void remove(Integer id) {

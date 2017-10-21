@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
  */
 public class voiture {
 
-    private int id_voiture;
+   private int id_voiture;
     private User user;
     private String marque;
     private String matricule;
@@ -23,6 +23,11 @@ public class voiture {
     private String date_visite;
     private String date_assurance;
     private String date_vidange;
+    private String date_mc ; 
+    private int kilometrage_actuel ; 
+    
+   
+    
 
     public voiture(int id_voiture, User user, String marque, String matricule, String date_vignette, String date_visite, String date_assurance, String date_vidange) {
         this.id_voiture = id_voiture;
@@ -57,10 +62,32 @@ public class voiture {
         return user;
     }
 
+    public String getDate_mc() {
+        return date_mc;
+    }
+
+    public int getKilometrage_actuel() {
+        return kilometrage_actuel;
+    }
+
+    
+    
+
     public void setUser(User user) {
         this.user = user;
     }
 
+    public void setDate_mc(String date_mc) {
+        this.date_mc = date_mc;
+    }
+
+    public void setKilometrage_actuel(int kilometrage_actuel) {
+        this.kilometrage_actuel = kilometrage_actuel;
+    }
+
+
+    
+    
     public String getMarque() {
         return marque;
     }

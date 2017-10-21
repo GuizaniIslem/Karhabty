@@ -2,11 +2,15 @@ package unido.pidev.tests;
 
 import java.sql.SQLException;
 import unido.pidev.interfaces.IuserService;
+import unido.pidev.models.Depense;
 import unido.pidev.models.Message;
+import unido.pidev.models.NotesVoiture;
 import unido.pidev.models.Pub;
 import unido.pidev.models.User;
 import unido.pidev.models.voiture;
+import unido.pidev.services.DepenseService;
 import unido.pidev.services.MessageService;
+import unido.pidev.services.NotesVoitureService;
 
 import unido.pidev.services.PubService;
 import unido.pidev.services.UserService;
@@ -56,14 +60,24 @@ public class testUser {
     
    ///////////////TEST VOITURE \\\\\\\\\\\\\\\\\
    VoitureService vs = new VoitureService() ; 
-    voiture v1= new voiture (3,u,"peujeot","123Tun4430","2/12/2012","12/12/2012", "12/12/2012","12/12/2012") ;
+    voiture v1= new voiture (1,u,"peujeot","123Tun4430","2/12/2012","12/12/2012", "12/12/2012","12/12/2012") ;
     //vs.add(v1); 
     
     
     ///////////TEST PUB \\\\\\\\\\\\\\\
     PubService ps = new PubService() ;
     Pub p = new Pub(1,u,"titre1","desc1","15/10/2017","path1") ;
-    ps.add(p);
+    //ps.add(p);
+    
+    ///// TEST NOTES\\\\\\\\\
+        NotesVoitureService nvs = new NotesVoitureService();
+        NotesVoiture nv = new NotesVoiture(1,v1, "21/10/2017","Objet","Text") ; 
+        //nvs.add(nv);
+        
+     ///// TEST DEPENSE \\\\\\\
+        DepenseService ds = new DepenseService();
+        Depense d = new Depense(1, v1, "carburant", 30, "21/10/2017") ;
+        ds.add(d);
     
     
 }
